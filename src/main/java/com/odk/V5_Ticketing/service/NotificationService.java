@@ -14,8 +14,7 @@ import java.util.Optional;
 
 @Service
 public class NotificationService {
-
-
+    
     @Autowired
     private NotificationRepository notificationRepository;
 

@@ -39,14 +39,14 @@ public class AdminController {
         Optional<Admin> admin = adminService.getAdminById(id);
         return admin.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
-    //creer
+    //creer un admin
     @Operation(summary = "creer un admin",description = "creer un nouveau admin")
     @PostMapping
-
     public Admin createAdmin(@RequestBody Admin admin){
         admin.setMotDePasse(passwordEncoder.encode(admin.getMotDePasse()));
         return adminService.createAdmin(admin);
     }
+
     // Mettre à jour un admin par ID
     @Operation(summary = "Modifier par ID",description = "Modifier un admin par son ID")
     @PutMapping("/{id}")
